@@ -6,7 +6,9 @@
     "type": "project",
     "require": {
         "php": "^8.1",
-        "laravel/lumen-framework": "^10.0"
+        "laminas/laminas-soap": "^2.5",
+        "laravel/lumen-framework": "^10.0",
+        "ext-soap": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

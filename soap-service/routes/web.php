@@ -14,5 +14,8 @@
 */
 
 $router->get('/', function () use ($router) {
-    return $router->app->version();
+    return response()->json(['message' => 'OK']);
 });
+
+$router->get('/soap', 'Api\SoapController@wsdl');
+$router->post('/soap', 'Api\SoapController@handle');
