@@ -62,12 +62,15 @@ export class SoapService {
     if (!response) {
       throw new Error('Unexpected SOAP response format');
     }
+    console.log('response:', response);
     // Extract specific fields
     const items = Array.isArray(response.data.item)
       ? response.data.item
-      : [response.data.item];
+      : response.data.item
+        ? [response.data.item]
+        : [];
     let transformedItems = [];
-    console.log('items:', items);
+
     if (items.length > 0) {
       transformedItems = items.reduce((acc, item) => {
         acc[item.key._] = item.value._;
