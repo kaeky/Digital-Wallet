@@ -38,7 +38,6 @@ export class SoapService {
       );
       return this.parseSoapResponse(response.data);
     } catch (error) {
-      console.log('SOAP request failed:', error);
       throw new BadRequestException(error.message);
     }
   }
@@ -50,7 +49,6 @@ export class SoapService {
   }
 
   private async parseSoapResponse(xml: string): Promise<any> {
-    console.log('SOAP response:', xml);
     const parser = new xml2js.Parser({ explicitArray: false });
     const parsed = await parser.parseStringPromise(xml);
 
@@ -62,7 +60,6 @@ export class SoapService {
     if (!response) {
       throw new Error('Unexpected SOAP response format');
     }
-    console.log('response:', response);
     // Extract specific fields
     const items = Array.isArray(response.data.item)
       ? response.data.item
